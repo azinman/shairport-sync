@@ -34,6 +34,11 @@ if USE_PIPE
 shairport_sync_SOURCES += audio_pipe.c
 endif
 
+if USE_NN_SERVER
+shairport_sync_SOURCES += audio_nn_server.c
+shairport_sync_SOURCES += nn_common.c
+endif
+
 if USE_DUMMY
 shairport_sync_SOURCES += audio_dummy.c
 endif

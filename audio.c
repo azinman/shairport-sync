@@ -47,6 +47,9 @@ extern audio_output audio_dummy;
 #ifdef CONFIG_PIPE
 extern audio_output audio_pipe;
 #endif
+#ifdef CONFIG_NN_SERVER
+extern audio_output audio_nn_server;
+#endif
 #ifdef CONFIG_STDOUT
 extern audio_output audio_stdout;
 #endif
@@ -69,6 +72,9 @@ static audio_output *outputs[] = {
 #endif
 #ifdef CONFIG_PIPE 
     &audio_pipe,
+#endif
+#ifdef CONFIG_NN_SERVER
+    &audio_nn_server,
 #endif
 #ifdef CONFIG_STDOUT
     &audio_stdout,

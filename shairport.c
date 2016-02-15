@@ -143,6 +143,9 @@ void print_version(void) {
 #ifdef CONFIG_PIPE
   strcat(version_string, "-pipe");
 #endif
+#ifdef CONFIG_NN_SERVER
+  strcat(version_string, "-nn_server");
+#endif
 #ifdef HAVE_LIBSOXR
   strcat(version_string, "-soxr");
 #endif

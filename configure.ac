@@ -67,6 +67,12 @@ AM_CONDITIONAL([USE_STDOUT], [test "x$with_stdout" = "xyes" ])
 AC_ARG_WITH([pipe],[  --with-pipe = include the pipe audio back end ],[ AC_MSG_RESULT(>>Including the pipe audio back end)  AC_DEFINE([CONFIG_PIPE], 1, [Needed by the compiler.]) ], )
 AM_CONDITIONAL([USE_PIPE], [test "x$with_pipe" = "xyes" ])
 
+AC_ARG_WITH([nn_server],[  --with-nn_server = include the nn_server audio back end ], [ 
+  AC_MSG_RESULT(>>Including the nn_server audio back end)
+  AC_CHECK_LIB([nanomsg],[nn_socket], , AC_MSG_ERROR(nanomsg support requested but nanomsg not found!))
+  AC_DEFINE([CONFIG_NN_SERVER], 1, [Needed by the compiler.]) ], )
+AM_CONDITIONAL([USE_NN_SERVER], [test "x$with_nn_server" = "xyes" ])
+
 # Check to see if we should include the System V initscript
 
 AC_ARG_WITH([systemv],
